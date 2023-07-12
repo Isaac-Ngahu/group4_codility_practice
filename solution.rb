@@ -60,27 +60,19 @@ def consecutive_sequence(array)
 end
   
 # pp consecutive_sequence(unsorted_array)
-# def two_sum(nums, target)
-#     nums.each_with_index do |num1, index|
-#       break if index == nums.length - 1
-  
-#       num2 = nums[index + 1]  
-#       if num2 != nil && num1 + num2 == target
-#         return [nums.index(num1), nums.index(num2)]
-#       end
-#     end
-#   end
-def two_sum(nums, target)
-    nums.each_with_index do |num1, index|
-      break if index == nums.length - 1
-  
-      num2 = nums[index + 1]
-  
-      if num2 != nil && num1 + num2 == target
-        return [index, index + 1]
+
+
+def two_sums(nums,target)
+  length=nums.length
+
+  for i in 0...length
+    for j in (i+1)...length
+      if nums[i]+nums[j] == target
+        return [i,j]
       end
     end
   end
-  
+  return nil
+end
 nums = [2,7,11,15]
-pp two_sum(nums,13)
+pp two_sums(nums,13)
